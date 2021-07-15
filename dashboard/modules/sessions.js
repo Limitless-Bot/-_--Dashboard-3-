@@ -1,5 +1,5 @@
-const authClient = require('./auth-client');
-const bot = require('../../bot');
+const authClient = require('./auth-client')
+const bot = require('../../bot')
 
 const sessions = new Map();
 
@@ -8,7 +8,7 @@ function get(key) {
 }
 
 async function create(key) {
-  setTimeout(() => sessions.delete(key), 5 * 60 * 1000);
+  setTimeout(() => sessions.delete(key), 5 * 60 * 1000)
   await update(key);
 
   return sessions.get(key);
@@ -28,12 +28,12 @@ function getManageableGuilds(authGuilds) {
     const isManager = authGuilds
       .get(id).permissions
       .includes('MANAGE_GUILD');
-    const guild = bot.guilds.cache.get(id);
-    if (!guild || !isManager) continue;
+      const guild = bot.guilds.cache.get(id)
+      if (!guild || !isManager) continue;
 
-    guilds.push(guild);
+      guilds.push(guild);
   }
-  return guilds;
+  return guilds
 }
 
 module.exports.get = get;

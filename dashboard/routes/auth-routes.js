@@ -1,25 +1,41 @@
 const express = require('express')
 const config = require('../../config.json')
-const authClient = require('../auth-client')
+const authClient = require('../modules/auth-client')
+const sessions = require('../modules/sessions')
 
 const router = express.Router();
 
-router.get('/login', (req, res) => 
-    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${client.bot.id}&redirect_uri=${config.dashboardURL}/auth&response_type=code&scope=identify%20guilds`));
+router.get('/invite', (req, res) =>
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${config.bot.id}&redirect_uri=${config.dashboardURL}/auth-guild&response_type=code&scope=bot`));
 
-    router.get('/auth?code=', async (req, res) => {
+router.get('/login', (req, res) => 
+    res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${config.bot.id}&redirect_uri=${config.dashboardURL}/auth&response_type=code&scope=guilds identify`));
+
+router.get('/auth-guild', async (req, res) => {
+    try {
+        const key = res.cookies.get('key');
+        await sessions.update(key);
+    } finally {
+        res.redirect('/dashboard')
+    }
+})
+
+router.get('/auth', async (req, res) => {
     try {
         const code = req.query.code;
-        console.log(code)
-        const key = await authClient.getAccess(code)
+        const key = await authClient.getAccess(code);
 
         res.cookies.set('key', key)
-        res.redirect('/dashboard'); 
+        res.redirect('/dashboard')
     } catch {
-        res.render('/');
+        res.redirect('/')
     }
 });
 
+router.get('/logout', (req, res) => {
+    res.cookies.set('key', '');
 
+    res.redirect('/');
+})
 
 module.exports = router;

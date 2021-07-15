@@ -1,9 +1,9 @@
 {
     "bot": {
-      "id": "814913860900749333",
-      "secret": "SsWhvTQVdVCb2GTQNBKGcbsMDvFvcrqC",
-      "token": "ODE0OTEzODYwOTAwNzQ5MzMz.YDkxrA.vQ6VbiS92hzYjH3J9c7H_YBaLYY"
+      "id": "823550491928952872",
+      "secret": "fjJb_lb7KrM21mw7QiCUKQbQhMJnfJNy",
+      "token": "ODIzNTUwNDkxOTI4OTUyODcy.YFidKg.Mvq2_-zC60huPfhzEjcBcXqXPho"
     },
-    "dashboardURL": "https://limitless-bot.github.io/-_--Dasboard-2-",
+    "dashboardURL": "http://localhost:3000",
     "mongoURI": "mongodb+srv://limitless:limitless@limitless.vbtvs.mongodb.net/limitless?retryWrites=true&w=majority"
   }  

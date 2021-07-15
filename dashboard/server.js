@@ -1,8 +1,9 @@
 const cookies = require('cookies');
 const express = require('express');
-const middleware = require('./middleware')
+const middleware = require('./modules/middleware')
 
 const authRoutes = require('./routes/auth-routes');
+const dashboardRoutes = require('./routes/dashboard-routes');
 const rootRoutes = require('./routes/root-routes');
 
 const app = express()
@@ -10,15 +11,16 @@ const app = express()
 app.set('views', __dirname + '/views')
 app.set('view engine', 'pug')
 
-app.use(cookies.express('a', 'b', 'c'))
+app.use(cookies.express('a', 'b', 'c'));
 
 app.use(express.static(`${__dirname}/assets`));
 app.locals.basedir = `${__dirname}/assets`;
 
 app.use('/',
     middleware.updateUser, rootRoutes,
-    authRoutes
-);
+    authRoutes,
+    middleware.validateUser, middleware.updateGuilds, dashboardRoutes
+    );
 
 app.get('*', (req, res) => res.render('errors/404'))
 
