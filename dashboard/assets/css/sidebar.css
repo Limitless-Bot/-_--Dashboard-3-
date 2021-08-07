@@ -29,6 +29,7 @@
 #sidebarExtension {
     height: 100vh;
     float: left;
+    background-color: rgb(230, 251, 255);
 }
 
 #sidebarExtension {
@@ -52,6 +53,9 @@
 #sidebarExtension .abbr {
     padding-top: 25px;
 }
+#sidebarExtension h4 {
+    cursor: pointer;
+}
 
 #sidebarExtension.closed {
     width: 0;
@@ -61,6 +65,7 @@
     opacity: 0;
 }
 
+/* tabs */
 .tabs a {
     margin: 2px 10px;
     padding: 5px;

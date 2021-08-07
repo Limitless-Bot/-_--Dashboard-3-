@@ -1,8 +1,9 @@
 const { model } = require('mongoose');
 
 class GeneralModule {
-  prefix = '.';
+  prefix = '';
   blacklistedChannelIds = [];
+  chatbotChannel = [];
 }
 
 module.exports = model('guild', {
