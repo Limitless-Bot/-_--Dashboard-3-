@@ -1,9 +1,0 @@
-{
-    "bot": {
-      "id": "823550491928952872",
-      "secret": "fjJb_lb7KrM21mw7QiCUKQbQhMJnfJNy",
-      "token": "ODIzNTUwNDkxOTI4OTUyODcy.YFidKg.jpvtWL1k84_Rabo-o5YfrHcQmCg"
-    },
-    "dashboardURL": "http://localhost:3000",
-    "mongoURI": "mongodb+srv://limitless:limitless@limitless.vbtvs.mongodb.net/limitless?retryWrites=true&w=majority"
-  }  
